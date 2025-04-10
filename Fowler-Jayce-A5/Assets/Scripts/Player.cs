@@ -12,8 +12,10 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameManager gameManager;
 
-    [SerializeField] private KeyCode left = KeyCode.Left;
-    [SerializeField] private KeyCode right = KeyCode.Right;
+    [SerializeField] private KeyCode left = KeyCode.LeftArrow;
+    [SerializeField] private KeyCode right = KeyCode.RightArrow;
+    [SerializeField] private KeyCode forward = KeyCode.W;
+    [SerializeField] private KeyCode backward = KeyCode.S;
     [SerializeField] private KeyCode fire = KeyCode.Space;
 
 
@@ -44,11 +46,18 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         // Forcibly rotate player when using left-right inputs
-        float rotationAngle = -Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;    
-        rb2d.MoveRotation(rotationAngle + transform.rotation.eulerAngles.z);
-
+        if (Input.GetKey(left))
+        {
+            float rotationAngle = rotationSpeed * Time.deltaTime;
+            rb2d.MoveRotation(rotationAngle + transform.rotation.eulerAngles.z);
+        }
+        if (Input.GetKey(right))
+        {
+            float rotationAngle = rotationSpeed * Time.deltaTime;
+            rb2d.MoveRotation(rotationAngle + transform.rotation.eulerAngles.z);
+        }
         // Add force to player
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(forward))
         {
             // Cap movement speed
             bool canApplyVelocity = rb2d.linearVelocity.magnitude < maxVelocity;
@@ -58,7 +67,7 @@ public class Player : MonoBehaviour
                 rb2d.AddForce(thrustForce);
             }
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(backward))
         {
             // Cap movement speed
             bool canApplyVelocity = rb2d.linearVelocity.magnitude < maxVelocity;
