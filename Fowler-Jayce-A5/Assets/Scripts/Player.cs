@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
             return;
 
         // Lose a life, handle case when lives run out
-        gameManager.RemoveLife();
+        //gameManager.RemoveLife();
         if (gameManager.IsGameOver())
         {
             // Destroy player -- code stops running after this!

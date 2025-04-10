@@ -4,23 +4,26 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    private int score;
-    private int lives;
+    private int scorered;
+    private int scoregreen;
+    private int timer;
 
     public TMP_Text scoreDisplay;
-    public TMP_Text livesDisplay;
     public TMP_Text gameOverDisplay;
 
     public void AddScore()
     {
-        score++;
+        scorered++;
+        UpdateScoreDisplay();
+    }
+    public void AddScoreGreen()
+    {
+        scoregreen++;
         UpdateScoreDisplay();
     }
 
     public void RemoveLife()
     {
-        lives--;
-        UpdateLivesDisplay();
 
         if (IsGameOver())
         {
@@ -30,29 +33,27 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        score = 0;
-        lives = 3;
+        scorered = 0;
+        scoregreen = 0;
+        timer = 60;
     }
 
     public bool IsGameOver()
     {
-        return lives <= 0;
+        return timer <= 0;
     }
 
     private void UpdateScoreDisplay()
     {
-        scoreDisplay.text = $"Score: {score}";
-    }
-    private void UpdateLivesDisplay()
-    {
-        livesDisplay.text = $"Lives: {lives}";
+        scoreDisplay.text = $"Scoregreen: {scoregreen}";
+        scoreDisplay.text = $"Scorered: {scorered}";
+        scoreDisplay.text = $"Timer: {timer}";
     }
 
     private void Start()
     {
         ResetGame();
         UpdateScoreDisplay();
-        UpdateLivesDisplay();
         gameOverDisplay.enabled = false;
     }
     private void Update()
