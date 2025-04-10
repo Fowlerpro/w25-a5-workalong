@@ -12,12 +12,16 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameManager gameManager;
 
+    [SerializeField] private KeyCode left = KeyCode.Left;
+    [SerializeField] private KeyCode right = KeyCode.Right;
+    [SerializeField] private KeyCode fire = KeyCode.Space;
+
 
     private void Update()
     {
         // Spawn bullet on mouse click
-        int leftClickID = 0;
-        if (Input.GetMouseButtonDown(leftClickID))
+        //int leftClickID = 0;
+        if (Input.GetKeyDown(fire))
         {
             // Bullet transform information when spawned
             Vector3 pos = transform.position + transform.up;
@@ -44,13 +48,23 @@ public class Player : MonoBehaviour
         rb2d.MoveRotation(rotationAngle + transform.rotation.eulerAngles.z);
 
         // Add force to player
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.W))
         {
             // Cap movement speed
             bool canApplyVelocity = rb2d.linearVelocity.magnitude < maxVelocity;
             if (canApplyVelocity)
             {
                 Vector2 thrustForce = transform.up * thrust;
+                rb2d.AddForce(thrustForce);
+            }
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            // Cap movement speed
+            bool canApplyVelocity = rb2d.linearVelocity.magnitude < maxVelocity;
+            if (canApplyVelocity)
+            {
+                Vector2 thrustForce = -transform.up * thrust;
                 rb2d.AddForce(thrustForce);
             }
         }
