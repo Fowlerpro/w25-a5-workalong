@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] private KeyCode forward = KeyCode.W;
     [SerializeField] private KeyCode backward = KeyCode.S;
     [SerializeField] private KeyCode fire = KeyCode.Space;
+    [SerializeField] private KeyCode stop = KeyCode.G;
 
 
     private void Update()
@@ -53,9 +54,10 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKey(right))
         {
-            float rotationAngle = rotationSpeed * Time.deltaTime;
+            float rotationAngle = -rotationSpeed * Time.deltaTime;
             rb2d.MoveRotation(rotationAngle + transform.rotation.eulerAngles.z);
         }
+
         // Add force to player
         if (Input.GetKey(forward))
         {
@@ -76,6 +78,13 @@ public class Player : MonoBehaviour
                 Vector2 thrustForce = -transform.up * thrust;
                 rb2d.AddForce(thrustForce);
             }
+        }
+        if (Input.GetKey(stop))
+        {
+            float rotationAngle = 0;
+            rb2d.MoveRotation(rotationAngle);
+            float thrustAngle = 0;
+            rb2d.AddForce(thrustForce);
         }
     }
 

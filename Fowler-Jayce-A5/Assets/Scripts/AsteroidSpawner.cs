@@ -4,7 +4,7 @@ public class AsteroidSpawner : MonoBehaviour
 {
     public GameManager gameManager;
     public GameObject largeAsteroid;
-    public int spawnPerDestroyedAsteroids = 4;
+    public int spawnPerDestroyedAsteroids = 5;
     private int spawnedAsteroidsCount = 0;
 
     public void CheckSpawnAsteroid(int score)

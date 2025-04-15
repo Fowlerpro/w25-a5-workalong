@@ -8,21 +8,26 @@ public class GameManager : MonoBehaviour
     private int scoregreen;
     private int timer;
 
-    public TMP_Text scoreDisplay;
+    public TMP_Text scoreDisplayRed;
+    public TMP_Text scoreDisplayGreen;
+    public TMP_Text timerDisplay;
     public TMP_Text gameOverDisplay;
+    public AsteroidSpawner asteroidSpawner;
 
     public void AddScore()
     {
         scorered++;
         UpdateScoreDisplay();
+        asteroidSpawner.CheckSpawnAsteroid(scorered);
     }
     public void AddScoreGreen()
     {
         scoregreen++;
         UpdateScoreDisplay();
+        asteroidSpawner.CheckSpawnAsteroid(scoregreen);
     }
 
-    public void RemoveLife()
+    public void Timer()
     {
 
         if (IsGameOver())
@@ -45,9 +50,10 @@ public class GameManager : MonoBehaviour
 
     private void UpdateScoreDisplay()
     {
-        scoreDisplay.text = $"Scoregreen: {scoregreen}";
-        scoreDisplay.text = $"Scorered: {scorered}";
-        scoreDisplay.text = $"Timer: {timer}";
+        scoreDisplayGreen.text = $"Scoregreen: {scoregreen}";
+        scoreDisplayRed.text = $"Scorered: {scorered}";
+        timer = Timer
+        timerDisplay.text = $"Timer: {timer}";
     }
 
     private void Start()

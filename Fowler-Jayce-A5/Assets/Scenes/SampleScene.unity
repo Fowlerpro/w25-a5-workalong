@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 74250553}
   - component: {fileID: 74250552}
   m_Layer: 5
-  m_Name: ScoreRed (1)
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -745,17 +745,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5020878972912135297, guid: fffc042d78789f646875953d8cf65a8d, type: 3}
       propertyPath: m_Name
-      value: Asteroid-Lg (4)
+      value: Puck
       objectReference: {fileID: 0}
     - target: {fileID: 5020878972912135297, guid: fffc042d78789f646875953d8cf65a8d, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5020878972912135297, guid: fffc042d78789f646875953d8cf65a8d, type: 3}
+      propertyPath: m_TagString
+      value: Puck
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2413874576302184835, guid: fffc042d78789f646875953d8cf65a8d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5020878972912135297, guid: fffc042d78789f646875953d8cf65a8d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 427539840}
   m_SourcePrefab: {fileID: 100100000, guid: fffc042d78789f646875953d8cf65a8d, type: 3}
+--- !u!1 &427539834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5020878972912135297, guid: fffc042d78789f646875953d8cf65a8d, type: 3}
+  m_PrefabInstance: {fileID: 234759090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &427539840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427539834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3404b878ef5857147879ea5a4ec7ea32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2d: {fileID: 0}
+  minSpeed: 1
+  maxSpeed: 10
+  pucks: []
+  RandomizeStartVelocity: 1
 --- !u!1 &441663387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,6 +1611,10 @@ PrefabInstance:
       value: 0.9254902
       objectReference: {fileID: 0}
     - target: {fileID: 1526306763613685640, guid: fffc042d78789f646875953d8cf65a8d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526306763613685640, guid: fffc042d78789f646875953d8cf65a8d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -17.07
       objectReference: {fileID: 0}
@@ -1598,15 +1632,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1526306763613685640, guid: fffc042d78789f646875953d8cf65a8d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1526306763613685640, guid: fffc042d78789f646875953d8cf65a8d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1526306763613685640, guid: fffc042d78789f646875953d8cf65a8d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1526306763613685640, guid: fffc042d78789f646875953d8cf65a8d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
