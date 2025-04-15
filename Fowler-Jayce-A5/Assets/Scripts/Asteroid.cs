@@ -53,7 +53,6 @@ public class Asteroid : MonoBehaviour
         }
 
         // Add score
-        GameObject.Find("GameManager").GetComponent<GameManager>().AddScoreRed();
         GameObject.Find("GameManager").GetComponent<GameManager>().AddScoreGreen();
         // Destroy bullet, then this asteroid
         Destroy(collider2D.gameObject);

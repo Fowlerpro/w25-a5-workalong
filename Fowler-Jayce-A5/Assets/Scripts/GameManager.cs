@@ -4,22 +4,14 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    private int scorered;
     private int scoregreen;
     private float timer = 60;
 
-    public TMP_Text scoreDisplayRed;
     public TMP_Text scoreDisplayGreen;
     public TMP_Text timerDisplay;
     public TMP_Text gameOverDisplay;
     public AsteroidSpawner asteroidSpawner;
 
-    public void AddScoreRed()
-    {
-        scorered++;
-        UpdateScoreDisplayRed();
-        asteroidSpawner.CheckSpawnAsteroid(scorered);
-    }
     public void AddScoreGreen()
     {
         scoregreen++;
@@ -34,7 +26,6 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        scorered = 0;
         scoregreen = 0;
         timer = 60;
     }
@@ -49,15 +40,9 @@ public class GameManager : MonoBehaviour
         scoreDisplayGreen.text = $"Scoregreen: {scoregreen}";
         
     }
-    private void UpdateScoreDisplayRed()
-    {
-        scoreDisplayRed.text = $"Scorered: {scorered}";
-    }
-
     private void Start()
     {
         ResetGame();
-        UpdateScoreDisplayRed();
         UpdateScoreDisplayGreen();
         gameOverDisplay.enabled = false;
     }

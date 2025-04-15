@@ -81,10 +81,8 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKey(stop))
         {
-            float rotationAngle = 0;
-            rb2d.MoveRotation(rotationAngle);
-            Vector2 thrustForce = transform.up * 0;
-            rb2d.AddForce(thrustForce);
+            rb2d.linearVelocity = Vector2.zero;
+            rb2d.angularVelocity = 0f;
         }
     }
 
